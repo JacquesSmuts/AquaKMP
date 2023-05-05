@@ -1,0 +1,26 @@
+
+CREATE TABLE waterSettings(
+    id INTEGER PRIMARY KEY NOT NULL,
+    goalPerDayMilliliter INTEGER NOT NULL,
+    portionsPerDay INTEGER NOT NULL,
+    dayStartHour INTEGER NOT NULL,
+    dayStartMinute INTEGER NOT NULL,
+    dayEndHour INTEGER NOT NULL,
+    dayEndMinute INTEGER NOT NULL
+);
+
+INSERT INTO waterSettings(id, goalPerDayMilliliter, portionsPerDay, dayStartHour, dayStartMinute, dayEndHour, dayEndMinute)
+VALUES (1, 3500, 7, 8, 0, 20, 0);
+
+CREATE INDEX water_settings_id ON waterSettings(id);
+
+-- We are currently assuming that there will only be one user setting, so we always set id to 1
+insert:
+INSERT OR REPLACE INTO waterSettings(id, goalPerDayMilliliter, portionsPerDay, dayStartHour, dayStartMinute, dayEndHour, dayEndMinute)
+VALUES (1, ?, ?, ?, ?, ?, ?);
+
+select:
+SELECT *
+FROM waterSettings
+WHERE id = 1
+LIMIT 1;

@@ -1,3 +1,4 @@
+
 plugins {
     kotlin("multiplatform")
     id("com.android.application")
@@ -10,6 +11,8 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(project(":shared"))
+                api("io.insert-koin:koin-core:3.3.3")
+                api("io.insert-koin:koin-android:3.3.3")
             }
         }
     }
@@ -17,12 +20,12 @@ kotlin {
 
 android {
     compileSdk = (findProperty("android.compileSdk") as String).toInt()
-    namespace = "com.myapplication"
+    namespace = "com.jacquessmuts"
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
 
     defaultConfig {
-        applicationId = "com.myapplication.MyApplication"
+        applicationId = "com.jacquessmuts.aquakmp"
         minSdk = (findProperty("android.minSdk") as String).toInt()
         targetSdk = (findProperty("android.targetSdk") as String).toInt()
         versionCode = 1

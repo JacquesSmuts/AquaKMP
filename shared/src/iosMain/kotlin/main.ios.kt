@@ -1,5 +1,7 @@
 import androidx.compose.ui.window.ComposeUIViewController
+import data.WaterRepository
 
 actual fun getPlatformName(): String = "iOS"
 
-fun MainViewController() = ComposeUIViewController { App() }
+@Suppress("unused")
+fun MainViewController(waterRepository: WaterRepository) = ComposeUIViewController { App(waterRepository) }

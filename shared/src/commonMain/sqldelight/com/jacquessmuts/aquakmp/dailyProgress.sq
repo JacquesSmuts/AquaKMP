@@ -1,0 +1,18 @@
+
+CREATE TABLE dailyProgress(
+    yearAndDay INTEGER PRIMARY KEY NOT NULL,
+    waterDrankInMilliliter INTEGER NOT NULL
+);
+
+INSERT INTO dailyProgress(yearAndDay, waterDrankInMilliliter)
+VALUES (1, 500);
+
+CREATE INDEX daily_progress_id ON dailyProgress(yearAndDay);
+
+insert:
+INSERT OR REPLACE INTO dailyProgress(yearAndDay, waterDrankInMilliliter)
+VALUES ?;
+
+select:
+SELECT *
+FROM dailyProgress;
